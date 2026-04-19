@@ -13,9 +13,20 @@
         .spec-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
         .spec-table td { padding: 15px; border-bottom: 1px solid #222; }
         .spec-table td:first-child { color: #ff0000; font-weight: bold; width: 40%; }
-        /* استایل دکمه بازگشت برای اینکه رنگش قرمز و کلیک‌خور باشد */
-        .back-btn { display: inline-block; margin-bottom: 20px; color: #ff0000; text-decoration: none; font-size: 0.9rem; font-weight: bold; cursor: pointer; }
-        .back-btn:hover { color: #ff6666; text-decoration: underline; }
+
+        /* اصلاح دکمه بازگشت: در حالت عادی خاکستری، موقع هاور قرمز */
+        .back-btn { 
+            display: inline-block; 
+            margin-bottom: 20px; 
+            color: #888; /* خاکستری در حالت عادی */
+            text-decoration: none; 
+            font-size: 0.9rem; 
+            transition: 0.3s; 
+        }
+        .back-btn:hover { 
+            color: #ff0000; /* قرمز موقعی که موس روی آن می‌رود */
+        }
+
         p { text-align: justify; color: #ccc; }
         .highlight { color: #ff0000; font-weight: bold; }
     </style>
@@ -30,7 +41,7 @@
 <div class="content">
     <a href="../index.html" class="back-btn">← بازگشت به لیست</a>
     
-    <p>تویوتا سوپرا نسل چهارم (A80) بدون شک یکی از نمادین‌ترین خودروهای اسپرت تاریخ است.</p>
+    <p>تویوتا سوپرا نسل چهارم (A80) بدون شک یکی از نمادین‌ترین خودروهای اسپرت تاریخ است. این خودرو به دلیل مهندسی فوق‌العاده موتور و پتانسیل بی‌پایان برای تقویت، در تمام دنیا به عنوان یک "غول" شناخته می‌شود.</p>
 
     <h2>جدول مشخصات فنی (نسخه توربو)</h2>
     <table class="spec-table">
