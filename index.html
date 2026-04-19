@@ -3,43 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auto Magazine | مجله خودرو  </title>
+    <title>Auto Magazine | مرجع بررسی خودرو</title>
     <style>
-        /* فونت و استایل‌های اصلی */
-        :root {
-            --primary: #ff0000;
-            --bg: #0d0d0d;
-            --card-bg: #1a1a1a;
-        }
-
-        body {
-            background-color: var(--bg);
-            color: white;
-            /* استفاده از فونت‌های استانداردتر برای فارسی */
-            font-family: 'Segoe UI', Tahoma, 'Vazir', sans-serif;
-            margin: 0;
-            line-height: 1.6;
-        }
-
-        header {
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1200&q=80') center/cover;
-            padding: 80px 20px;
-            text-align: center;
-            border-bottom: 4px solid var(--primary);
-        }
-
-        .logo { font-size: 3rem; font-weight: 900; margin: 0; letter-spacing: 2px; }
+        :root { --primary: #ff0000; --bg: #0d0d0d; --card-bg: #1a1a1a; }
+        body { background-color: var(--bg); color: white; font-family: Tahoma, sans-serif; margin: 0; }
+        header { background: #000; padding: 60px 20px; text-align: center; border-bottom: 4px solid var(--primary); }
+        .logo { font-size: 3rem; font-weight: 900; }
         .logo span { color: var(--primary); }
+        .container { max-width: 1000px; margin: 40px auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; padding: 0 20px; }
         
-        .container {
-            max-width: 1000px;
-            margin: 40px auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-            padding: 0 20px;
-        }
-
         .car-card {
             background: var(--card-bg);
             border-radius: 15px;
@@ -49,6 +21,7 @@
             transition: 0.4s;
             text-decoration: none;
             color: white;
+            display: block;
         }
 
         .car-card:hover {
@@ -57,58 +30,48 @@
             box-shadow: 0 15px 30px rgba(255, 0, 0, 0.2);
         }
 
-        .car-card h3 { font-size: 1.5rem; margin: 15px 0; }
-        .car-card p { color: #aaa; font-size: 0.9rem; }
-        
-        .badge {
-            background: var(--primary);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: bold;
-        }
-
-        footer { text-align: center; padding: 40px; color: #444; border-top: 1px solid #222; margin-top: 50px; }
+        .badge { background: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 11px; }
+        footer { text-align: center; padding: 40px; color: #444; font-size: 13px; }
     </style>
 </head>
 <body>
 
 <header>
     <div class="logo">AUTO <span>MAGAZINE</span></div>
-    <p>بررسی تخصصی ۱۰ خودرو برتر | امیر PX</p>
+    <p>بررسی تخصصی و فنی خودروهای برتر</p>
 </header>
 
-<div class="container" id="carContainer">
-    </div>
+<div class="container" id="carContainer"></div>
 
 <footer>
-    &copy; 2026 Auto Magazine | تمامی حقوق برای امیر PX محفوظ است
+    &copy; 2026 Auto Magazine | تمامی حقوق محفوظ است
 </footer>
 
 <script>
-    // لیست محدود شده به ۱۰ ماشین
-    const carList = [
-        "پژو پارس ELX",
-        "زانتیا 2000",
-        "تویوتا سوپرا",
-        "نیسان GTR",
-        "دنا پلاس توربو",
-        "پژو 206 تیپ 5",
-        "ب‌ام‌و M4",
-        "پورشه 911",
-        "نیسان آبی ",
-        "پیکان "
+    const cars = [
+        { name: "تویوتا سوپرا", path: "articles/supra.html" },
+        { name: "پژو پارس ELX", path: "#" },
+        { name: "زانتیا 2000", path: "#" },
+        { name: "نیسان GTR", path: "#" },
+        { name: "دنا پلاس توربو", path: "#" },
+        { name: "پژو 206 تیپ 5", path: "#" },
+        { name: "ب‌ام‌و M4", path: "#" },
+        { name: "پورشه 911", path: "#" },
+        { name: "نیسان آبی", path: "#" },
+        { name: "پیکان پنوماتیک", path: "#" }
     ];
 
     const container = document.getElementById('carContainer');
 
-    carList.forEach(car => {
-        const card = document.createElement('div');
+    cars.forEach(car => {
+        const card = document.createElement('a');
         card.className = 'car-card';
+        card.href = car.path;
+        
         card.innerHTML = `
-            <span class="badge">بررسی فنی</span>
-            <h3>${car}</h3>
-            <p>مشخصات فنی، سرعت و پتانسیل تیونینگ</p>
+            <span class="badge">مشخصات فنی</span>
+            <h3>${car.name}</h3>
+            <p>بررسی قدرت موتور و پتانسیل تیونینگ</p>
         `;
         container.appendChild(card);
     });
