@@ -5,35 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auto Magazine | مرجع فنی خودرو</title>
     <style>
-        :root { --primary: #ff0000; --bg: #0d0d0d; --card-bg: #161616; --gold: #e6b13e; /* رنگ طلایی */ }
+        :root { --primary: #ff0000; --bg: #0d0d0d; --card-bg: #161616; --gold: #D4AF37; }
         body { background-color: var(--bg); color: white; font-family: Tahoma, sans-serif; margin: 0; }
         
-        /* استایل هدر جدید برای لوگوی مشکی و طلایی */
         header { 
             background: #000; 
-            padding: 40px 20px; 
+            padding: 50px 20px; 
             text-align: center; 
-            border-bottom: 3px solid var(--primary);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            border-bottom: 3px solid var(--gold); /* خط پایین هدر طلایی شد */
         }
 
-        /* لوگوی SVG مشکی و طلایی */
-        .logo-svg {
-            width: 150px;
-            height: auto;
-            margin-bottom: 15px;
-        }
+        .logo { font-size: 3rem; font-weight: 900; color: white; margin: 0; }
+        .logo span { color: var(--gold); } /* کلمه MAGAZINE طلایی شد */
 
-        .header-subtitle { color: #888; font-size: 0.9rem; margin: 0; }
+        .header-subtitle { color: #888; font-size: 1rem; margin-top: 10px; }
         
         .container { max-width: 1000px; margin: 40px auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; padding: 0 20px; }
         
         .car-card {
             background: var(--card-bg);
             border-radius: 12px;
-            padding: 20px;
+            padding: 25px;
             text-align: center;
             border: 1px solid #222;
             transition: 0.3s;
@@ -42,28 +34,14 @@
             display: block;
         }
 
-        .car-card:hover { border-color: var(--primary); background: #1a1a1a; transform: translateY(-5px); }
-        .badge { background: var(--primary); padding: 3px 10px; border-radius: 15px; font-size: 10px; }
+        .car-card:hover { border-color: var(--gold); background: #1a1a1a; transform: translateY(-5px); }
+        .badge { background: var(--gold); color: black; padding: 3px 10px; border-radius: 15px; font-size: 10px; font-weight: bold; }
     </style>
 </head>
 <body>
 
 <header>
-    <svg class="logo-svg" viewBox="0 0 500 150" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-            <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" style="stop-color:#b8860b;stop-opacity:1" />
-                <stop offset="50%" style="stop-color:#e6b13e;stop-opacity:1" />
-                <stop offset="100%" style="stop-color:#b8860b;stop-opacity:1" />
-            </linearGradient>
-        </defs>
-        <path d="M 250,10 L 400,50 L 380,140 L 250,180 L 120,140 L 100,50 Z" fill="#111" stroke="url(#goldGradient)" stroke-width="8"/>
-        <circle cx="250" cy="95" r="45" stroke="url(#goldGradient)" stroke-width="6" fill="none" />
-        <line x1="250" y1="50" x2="250" y2="140" stroke="url(#goldGradient)" stroke-width="6" />
-        <line x1="205" y1="95" x2="295" y2="95" stroke="url(#goldGradient)" stroke-width="6" />
-        <text x="250" y="145" font-family="Arial, sans-serif" font-size="28" font-weight="900" text-anchor="middle" fill="url(#goldGradient)">MAGAZINE</text>
-        <text x="250" y="115" font-family="Arial, sans-serif" font-size="18" font-weight="900" text-anchor="middle" fill="#000">AUTO</text>
-    </svg>
+    <div class="logo">AUTO <span>MAGAZINE</span></div>
     <p class="header-subtitle">بررسی تخصصی و فنی خودروها</p>
 </header>
 
@@ -74,7 +52,8 @@
         { name: "تویوتا سوپرا", path: "articles/supra.html" },
         { name: "پژو پارس ELX", path: "articles/pars-elx.html" },
         { name: "زانتیا 2000", path: "articles/xantia.html" },
-        // بقیه ماشین‌ها...
+        { name: "دنا پلاس توربو", path: "#" },
+        { name: "پژو 206 تیپ 5", path: "#" }
     ];
 
     const container = document.getElementById('carContainer');
@@ -82,7 +61,7 @@
         const card = document.createElement('a');
         card.className = 'car-card';
         card.href = car.path;
-        card.innerHTML = <span class="badge">مشخصات فنی</span><h3>${car.name}</h3>;
+        card.innerHTML = <span class="badge">مشخصات فنی</span><h3>${car.name}</h3><p style="font-size: 12px; color: #666;">مشاهده جزئیات</p>;
         container.appendChild(card);
     });
 </script>
