@@ -8,11 +8,9 @@
         :root { --gold: #D4AF37; --dark: #0d0d0d; }
         body { background: var(--dark); color: #eee; font-family: Tahoma, sans-serif; margin: 0; padding: 0; }
         
-        /* هدر */
         .header { text-align: center; padding: 50px 0 20px 0; }
         .logo { color: var(--gold); font-size: 4rem; font-weight: bold; margin: 0; letter-spacing: 5px; }
         
-        /* منوی جدید و خلوت */
         .main-nav {
             border-top: 1px solid var(--gold);
             border-bottom: 1px solid var(--gold);
@@ -21,7 +19,7 @@
             max-width: 800px;
             display: flex;
             justify-content: center;
-            gap: 100px; /* فاصله زیاد بین دو گزینه باقی‌مانده */
+            gap: 100px;
         }
         .nav-item { color: var(--gold); text-decoration: none; font-size: 1.2rem; font-weight: bold; cursor: pointer; transition: 0.3s; }
         .nav-item:hover { color: #fff; text-shadow: 0 0 10px var(--gold); }
@@ -30,10 +28,10 @@
 
         /* بخش خوش‌آمدگویی */
         #welcome-section { padding: 60px 20px; animation: fadeIn 1s ease; }
-        #welcome-section h2 { font-size: 3rem; color: #fff; margin-bottom: 10px; }
-        #welcome-section p { font-size: 1.5rem; color: var(--gold); }
+        #welcome-section h2 { font-size: 3.5rem; color: #fff; margin-bottom: 10px; letter-spacing: 2px; }
+        #welcome-section p { font-size: 1.8rem; color: var(--gold); font-weight: bold; }
 
-        /* لیست کارت‌ها (در ابتدا مخفی) */
+        /* لیست کارت‌ها */
         #articles-list { display: none; animation: slideUp 0.6s ease; text-align: right; }
         .article-card { 
             background: #161616; 
@@ -46,12 +44,11 @@
             align-items: center; 
             transition: 0.3s;
         }
-        .article-card:hover { border-color: var(--gold); background: #1a1a1a; }
+        .article-card:hover { border-color: var(--gold); background: #1a1a1a; transform: scale(1.02); }
         .article-card h2 { margin: 0; font-size: 1.3rem; color: #fff; }
         .btn-view { border: 1.5px solid var(--gold); color: var(--gold); padding: 10px 25px; text-decoration: none; border-radius: 8px; font-weight: bold; transition: 0.3s; }
         .btn-view:hover { background: var(--gold); color: #000; }
 
-        /* انیمیشن‌ها */
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
     </style>
@@ -72,21 +69,28 @@
     <div id="welcome-section">
         <h2>WELCOME</h2>
         <p>خوش آمدید</p>
-        <div style="margin-top: 30px; color: #666; font-size: 0.9rem;">برای شروع یکی از گزینه‌های منو را انتخاب کنید</div>
+        <div style="margin-top: 30px; color: #555; font-size: 1rem;">جهت مشاهده محتوا، از منوی بالا انتخاب کنید</div>
     </div>
 
     <div id="articles-list">
         <div class="article-card">
+            <h2>BMW X6 M Competition</h2>
+            <a href="articles/bmw-x6.html" class="btn-view">مطالعه بررسی</a>
+        </div>
+
+        <div class="article-card">
             <h2>Volkswagen Golf Mk7 GTE</h2>
             <a href="articles/golf-gte.html" class="btn-view">مطالعه بررسی</a>
         </div>
+
         <div class="article-card">
             <h2>Citroen Xantia</h2>
-            <a href="#" class="btn-view">مطالعه بررسی</a>
+            <a href="articles/xantia.html" class="btn-view">مطالعه بررسی</a>
         </div>
+
         <div class="article-card">
             <h2>Peugeot Pars ELX</h2>
-            <a href="#" class="btn-view">مطالعه بررسی</a>
+            <a href="articles/pars-elx.html" class="btn-view">مطالعه بررسی</a>
         </div>
     </div>
 
@@ -94,7 +98,6 @@
 
 <script>
     function showArticles() {
-        // پنهان کردن خوش‌آمدگویی و نمایش کارت‌ها
         document.getElementById('welcome-section').style.display = 'none';
         document.getElementById('articles-list').style.display = 'block';
     }
