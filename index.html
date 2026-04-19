@@ -12,30 +12,58 @@
             background: #000; 
             padding: 50px 20px; 
             text-align: center; 
-            border-bottom: 3px solid var(--gold); /* خط پایین هدر طلایی شد */
+            border-bottom: 3px solid var(--gold); 
         }
 
-        .logo { font-size: 3rem; font-weight: 900; color: white; margin: 0; }
-        .logo span { color: var(--gold); } /* کلمه MAGAZINE طلایی شد */
+        .logo { font-size: 3rem; font-weight: 900; color: white; margin: 0; letter-spacing: 2px; }
+        .logo span { color: var(--gold); }
 
         .header-subtitle { color: #888; font-size: 1rem; margin-top: 10px; }
         
-        .container { max-width: 1000px; margin: 40px auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; padding: 0 20px; }
+        /* کانتینر اصلی دکمه‌ها */
+        .container { 
+            max-width: 1000px; 
+            margin: 40px auto; 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+            gap: 20px; 
+            padding: 0 20px; 
+        }
         
+        /* استایل دکمه‌ها (کارت‌ها) */
         .car-card {
             background: var(--card-bg);
             border-radius: 12px;
             padding: 25px;
             text-align: center;
             border: 1px solid #222;
-            transition: 0.3s;
+            transition: 0.4s;
             text-decoration: none;
             color: white;
             display: block;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
 
-        .car-card:hover { border-color: var(--gold); background: #1a1a1a; transform: translateY(-5px); }
-        .badge { background: var(--gold); color: black; padding: 3px 10px; border-radius: 15px; font-size: 10px; font-weight: bold; }
+        .car-card:hover { 
+            border-color: var(--gold); 
+            background: #1a1a1a; 
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+        }
+
+        .badge { 
+            background: var(--gold); 
+            color: black; 
+            padding: 3px 12px; 
+            border-radius: 15px; 
+            font-size: 10px; 
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        h3 { margin: 10px 0; font-size: 1.2rem; }
+        .view-link { font-size: 12px; color: var(--gold); opacity: 0.8; }
     </style>
 </head>
 <body>
@@ -48,20 +76,31 @@
 <div class="container" id="carContainer"></div>
 
 <script>
+    // لیست کامل دکمه‌ها
     const cars = [
         { name: "تویوتا سوپرا", path: "articles/supra.html" },
         { name: "پژو پارس ELX", path: "articles/pars-elx.html" },
-        { name: "زانتیا 2000", path: "articles/xantia.html" },
+        { name: "سیتروئن زانتیا 2000", path: "articles/xantia.html" },
         { name: "دنا پلاس توربو", path: "#" },
-        { name: "پژو 206 تیپ 5", path: "#" }
+        { name: "پژو 206 تیپ 5", path: "#" },
+        { name: "ب‌ام‌و M4", path: "#" },
+        { name: "پورشه 911", path: "#" },
+        { name: "نیسان آبی", path: "#" },
+        { name: "پیکان پنوماتیک", path: "#" }
     ];
 
     const container = document.getElementById('carContainer');
+    
+    // ساخت دکمه‌ها به صورت خودکار
     cars.forEach(car => {
         const card = document.createElement('a');
         card.className = 'car-card';
         card.href = car.path;
-        card.innerHTML = <span class="badge">مشخصات فنی</span><h3>${car.name}</h3><p style="font-size: 12px; color: #666;">مشاهده جزئیات</p>;
+        card.innerHTML = `
+            <span class="badge">مشخصات فنی</span>
+            <h3>${car.name}</h3>
+            <span class="view-link">مشاهده جزئیات ←</span>
+        `;
         container.appendChild(card);
     });
 </script>
