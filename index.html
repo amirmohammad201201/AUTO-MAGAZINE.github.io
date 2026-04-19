@@ -3,42 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auto Magazine | مرجع بررسی خودرو</title>
+    <title>Auto Magazine | مرجع فنی خودرو</title>
     <style>
-        :root { --primary: #ff0000; --bg: #0d0d0d; --card-bg: #1a1a1a; }
+        :root { --primary: #ff0000; --bg: #0d0d0d; --card-bg: #161616; }
         body { background-color: var(--bg); color: white; font-family: Tahoma, sans-serif; margin: 0; }
-        header { background: #000; padding: 60px 20px; text-align: center; border-bottom: 4px solid var(--primary); }
-        .logo { font-size: 3rem; font-weight: 900; }
+        header { background: #000; padding: 50px 20px; text-align: center; border-bottom: 3px solid var(--primary); }
+        .logo { font-size: 2.5rem; font-weight: 900; }
         .logo span { color: var(--primary); }
-        .container { max-width: 1000px; margin: 40px auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; padding: 0 20px; }
+        .container { max-width: 1000px; margin: 40px auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; padding: 0 20px; }
         
         .car-card {
             background: var(--card-bg);
-            border-radius: 15px;
-            padding: 25px;
+            border-radius: 12px;
+            padding: 20px;
             text-align: center;
-            border: 1px solid #333;
-            transition: 0.4s;
+            border: 1px solid #222;
+            transition: 0.3s;
             text-decoration: none;
             color: white;
             display: block;
         }
 
         .car-card:hover {
-            transform: translateY(-10px);
             border-color: var(--primary);
-            box-shadow: 0 15px 30px rgba(255, 0, 0, 0.2);
+            background: #1a1a1a;
+            transform: translateY(-5px);
         }
 
-        .badge { background: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 11px; }
-        footer { text-align: center; padding: 40px; color: #444; font-size: 13px; }
+        .badge { background: var(--primary); padding: 3px 10px; border-radius: 15px; font-size: 10px; }
+        footer { text-align: center; padding: 30px; color: #444; font-size: 12px; }
     </style>
 </head>
 <body>
 
 <header>
     <div class="logo">AUTO <span>MAGAZINE</span></div>
-    <p>بررسی تخصصی و فنی خودروهای برتر</p>
+    <p>بررسی تخصصی مشخصات فنی خودروها</p>
 </header>
 
 <div class="container" id="carContainer"></div>
@@ -48,10 +48,11 @@
 </footer>
 
 <script>
+    // اینجا لیست ماشین‌ها و آدرس دقیق فایل‌هایشان را ست می‌کنیم
     const cars = [
         { name: "تویوتا سوپرا", path: "articles/supra.html" },
-        { name: "پژو پارس ELX", path: "#" },
-        { name: "زانتیا 2000", path: "#" },
+        { name: "پژو پارس ELX", path: "articles/pars-elx.html" },
+        { name: "زانتیا 2000", path: "articles/xantia.html" }, // اتصال به فایل زانتیا
         { name: "نیسان GTR", path: "#" },
         { name: "دنا پلاس توربو", path: "#" },
         { name: "پژو 206 تیپ 5", path: "#" },
@@ -71,7 +72,7 @@
         card.innerHTML = `
             <span class="badge">مشخصات فنی</span>
             <h3>${car.name}</h3>
-            <p>بررسی قدرت موتور و پتانسیل تیونینگ</p>
+            <p>برای مشاهده جزئیات کلیک کنید</p>
         `;
         container.appendChild(card);
     });
