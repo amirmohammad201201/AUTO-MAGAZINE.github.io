@@ -5,11 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auto Magazine | مرجع فنی خودرو</title>
     <style>
-        :root { --primary: #ff0000; --bg: #0d0d0d; --card-bg: #161616; }
+        :root { --primary: #ff0000; --bg: #0d0d0d; --card-bg: #161616; --gold: #e6b13e; /* رنگ طلایی */ }
         body { background-color: var(--bg); color: white; font-family: Tahoma, sans-serif; margin: 0; }
-        header { background: #000; padding: 50px 20px; text-align: center; border-bottom: 3px solid var(--primary); }
-        .logo { font-size: 2.5rem; font-weight: 900; }
-        .logo span { color: var(--primary); }
+        
+        /* استایل هدر جدید برای لوگوی مشکی و طلایی */
+        header { 
+            background: #000; 
+            padding: 40px 20px; 
+            text-align: center; 
+            border-bottom: 3px solid var(--primary);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* لوگوی SVG مشکی و طلایی */
+        .logo-svg {
+            width: 150px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .header-subtitle { color: #888; font-size: 0.9rem; margin: 0; }
+        
         .container { max-width: 1000px; margin: 40px auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; padding: 0 20px; }
         
         .car-card {
@@ -24,56 +42,47 @@
             display: block;
         }
 
-        .car-card:hover {
-            border-color: var(--primary);
-            background: #1a1a1a;
-            transform: translateY(-5px);
-        }
-
+        .car-card:hover { border-color: var(--primary); background: #1a1a1a; transform: translateY(-5px); }
         .badge { background: var(--primary); padding: 3px 10px; border-radius: 15px; font-size: 10px; }
-        footer { text-align: center; padding: 30px; color: #444; font-size: 12px; }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo">AUTO <span>MAGAZINE</span></div>
-    <p>بررسی تخصصی مشخصات فنی خودروها</p>
+    <svg class="logo-svg" viewBox="0 0 500 150" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#b8860b;stop-opacity:1" />
+                <stop offset="50%" style="stop-color:#e6b13e;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#b8860b;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+        <path d="M 250,10 L 400,50 L 380,140 L 250,180 L 120,140 L 100,50 Z" fill="#111" stroke="url(#goldGradient)" stroke-width="8"/>
+        <circle cx="250" cy="95" r="45" stroke="url(#goldGradient)" stroke-width="6" fill="none" />
+        <line x1="250" y1="50" x2="250" y2="140" stroke="url(#goldGradient)" stroke-width="6" />
+        <line x1="205" y1="95" x2="295" y2="95" stroke="url(#goldGradient)" stroke-width="6" />
+        <text x="250" y="145" font-family="Arial, sans-serif" font-size="28" font-weight="900" text-anchor="middle" fill="url(#goldGradient)">MAGAZINE</text>
+        <text x="250" y="115" font-family="Arial, sans-serif" font-size="18" font-weight="900" text-anchor="middle" fill="#000">AUTO</text>
+    </svg>
+    <p class="header-subtitle">بررسی تخصصی و فنی خودروها</p>
 </header>
 
 <div class="container" id="carContainer"></div>
 
-<footer>
-    &copy; 2026 Auto Magazine | تمامی حقوق محفوظ است
-</footer>
-
 <script>
-    // اینجا لیست ماشین‌ها و آدرس دقیق فایل‌هایشان را ست می‌کنیم
     const cars = [
         { name: "تویوتا سوپرا", path: "articles/supra.html" },
         { name: "پژو پارس ELX", path: "articles/pars-elx.html" },
-        { name: "زانتیا 2000", path: "articles/xantia.html" }, // اتصال به فایل زانتیا
-        { name: "نیسان GTR", path: "#" },
-        { name: "دنا پلاس توربو", path: "#" },
-        { name: "پژو 206 تیپ 5", path: "#" },
-        { name: "ب‌ام‌و M4", path: "#" },
-        { name: "پورشه 911", path: "#" },
-        { name: "Golf gte", path: "#" },
-        { name: "پیکان ", path: "#" }
+        { name: "زانتیا 2000", path: "articles/xantia.html" },
+        // بقیه ماشین‌ها...
     ];
 
     const container = document.getElementById('carContainer');
-
     cars.forEach(car => {
         const card = document.createElement('a');
         card.className = 'car-card';
         card.href = car.path;
-        
-        card.innerHTML = `
-            <span class="badge">مشخصات فنی</span>
-            <h3>${car.name}</h3>
-            <p>برای مشاهده جزئیات کلیک کنید</p>
-        `;
+        card.innerHTML = <span class="badge">مشخصات فنی</span><h3>${car.name}</h3>;
         container.appendChild(card);
     });
 </script>
