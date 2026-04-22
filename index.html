@@ -3,9 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AUTO MAGAZINE | Latest Car News & Reviews</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>AUTO MAGAZINE | Luxury & Speed</title>
+    <style>
+        /* کل استایل‌ها را همین‌جا قرار دادم تا مشکل لود نشدن حل شود */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            width: 85%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        /* Header & Navbar */
+        header {
+            background: #222;
+            color: #fff;
+            padding: 20px 0;
+            border-bottom: #e8491d 4px solid;
+        }
+
+        header .logo {
+            float: left;
+            margin: 0;
+            font-size: 24px;
+            text-transform: uppercase;
+        }
+
+        header .logo span {
+            color: #e8491d;
+            font-weight: bold;
+        }
+
+        header nav {
+            float: right;
+            margin-top: 5px;
+        }
+
+        header nav ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        header nav li {
+            display: inline;
+            margin-left: 20px;
+        }
+
+        header a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        header a:hover {
+            color: #e8491d;
+        }
+
+        /* Hero Section */
+        #showcase {
+            min-height: 300px;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1000&q=80');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            color: #fff;
+            padding-top: 80px;
+        }
+
+        #showcase h1 {
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        #showcase p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #e8491d;
+            color: #fff;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        /* Articles Grid */
+        #articles {
+            padding: 40px 0;
+        }
+
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #fff;
+            padding: 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: #222;
+        }
+
+        .category {
+            color: #e8491d;
+            font-weight: bold;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        footer {
+            background: #222;
+            color: #fff;
+            text-align: center;
+            padding: 30px;
+            margin-top: 30px;
+        }
+
+        /* Clearfix برای هدر */
+        .container::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
 </head>
 <body>
 
@@ -14,36 +162,57 @@
             <h1 class="logo">AUTO<span>MAGAZINE</span></h1>
             <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Reviews</a></li>
-                    <li><a href="#">News</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">REVIEWS</a></li>
+                    <li><a href="#">NEWS</a></li>
+                    <li><a href="#">CONTACT</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main class="container">
-        <section class="hero">
-            <h2>Welcome to the Future of Driving</h2>
-            <p>Explore the latest trends, high-performance supercars, and electric vehicle innovations.</p>
-            <button class="btn">Read Latest News</button>
-        </section>
+    <section id="showcase">
+        <div class="container">
+            <h1>Welcome to the Future of Driving</h1>
+            <p>High-performance supercars and electric vehicle innovations.</p>
+            <a href="#" class="button">Read Latest News</a>
+        </div>
+    </section>
 
-        <section class="content">
+    <section id="articles" class="container">
+        <h2 style="text-align: center; margin-bottom: 30px;">Featured Articles</h2>
+        <div class="article-grid">
             <div class="card">
-                <h3>Electric Revolution</h3>
-                <p>How EVs are changing the automotive industry forever.</p>
+                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=500&q=80" alt="Porsche">
+                <div class="card-content">
+                    <span class="category">Review</span>
+                    <h3>The Speed Demon: 2026 Porsche 911</h3>
+                    <p>Testing the limits of engineering on the world's most famous tracks.</p>
+                </div>
             </div>
+
             <div class="card">
-                <h3>Supercar Spotting</h3>
-                <p>The most powerful engines hitting the streets this year.</p>
+                <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=500&q=80" alt="Supercar">
+                <div class="card-content">
+                    <span class="category">News</span>
+                    <h3>Electric Supercars are Here</h3>
+                    <p>How the automotive world is shifting to pure electricity without losing power.</p>
+                </div>
             </div>
-        </section>
-    </main>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=500&q=80" alt="Tech">
+                <div class="card-content">
+                    <span class="category">Technology</span>
+                    <h3>AI Inside Your Cockpit</h3>
+                    <p>Discover how AI is making modern driving safer and more interactive.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer>
-        <p>&copy; 2026 AUTO MAGAZINE - All Rights Reserved.</p>
+        <p>&copy; 2026 AUTO MAGAZINE - Designed by Amir PX</p>
     </footer>
 
 </body>
