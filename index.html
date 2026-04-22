@@ -1,130 +1,50 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AUTO MAGAZINE</title>
-    <style>
-        :root { --gold: #D4AF37; }
-
-        body { 
-            /* لایه مشکی نیمه‌شفاف روی عکس پس‌زمینه برای خوانایی بهتر */
-            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
-                        url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2047&auto=format&fit=crop'); 
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: #eee; 
-            font-family: Tahoma, sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            min-height: 100vh;
-        }
-        
-        /* هدر */
-        .header { text-align: center; padding: 50px 0 20px 0; }
-        .logo { color: var(--gold); font-size: 4rem; font-weight: bold; margin: 0; letter-spacing: 5px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
-        
-        /* منوی اصلی */
-        .main-nav {
-            border-top: 1px solid var(--gold);
-            border-bottom: 1px solid var(--gold);
-            margin: 20px auto;
-            padding: 15px 0;
-            max-width: 800px;
-            display: flex;
-            justify-content: center;
-            gap: 100px;
-            background: rgba(0, 0, 0, 0.3); /* پس‌زمینه ملایم برای منو */
-            backdrop-filter: blur(5px); /* افکت شیشه‌ای */
-        }
-        .nav-item { color: var(--gold); text-decoration: none; font-size: 1.2rem; font-weight: bold; cursor: pointer; transition: 0.3s; }
-        .nav-item:hover { color: #fff; text-shadow: 0 0 10px var(--gold); }
-
-        .container { max-width: 800px; margin: 40px auto; padding: 0 20px; text-align: center; }
-
-        /* بخش خوش‌آمدگویی */
-        #welcome-section { padding: 80px 20px; animation: fadeIn 1s ease; }
-        #welcome-section h2 { font-size: 3.5rem; color: #fff; margin-bottom: 10px; letter-spacing: 2px; }
-        #welcome-section p { font-size: 1.8rem; color: var(--gold); font-weight: bold; }
-
-        /* لیست کارت‌های بررسی فنی */
-        #articles-list { display: none; animation: slideUp 0.6s ease; text-align: right; }
-        .article-card { 
-            background: rgba(22, 22, 22, 0.9); /* پس‌زمینه کارت کمی شفاف */
-            border: 1px solid #333; 
-            padding: 25px; 
-            border-radius: 15px; 
-            margin-bottom: 20px; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            transition: 0.3s;
-            backdrop-filter: blur(10px);
-        }
-        .article-card:hover { border-color: var(--gold); background: rgba(26, 26, 26, 0.95); transform: translateY(-5px); }
-        .article-card h2 { margin: 0; font-size: 1.3rem; color: #fff; }
-        .btn-view { border: 1.5px solid var(--gold); color: var(--gold); padding: 10px 25px; text-decoration: none; border-radius: 8px; font-weight: bold; transition: 0.3s; }
-        .btn-view:hover { background: var(--gold); color: #000; }
-
-        /* انیمیشن‌ها */
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-    </style>
+    <title>AUTO MAGAZINE | Latest Car News & Reviews</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<div class="header">
-    <h1 class="logo">AUTO MAGAZINE</h1>
-</div>
-
-<div class="main-nav">
-    <a class="nav-item" onclick="showNews()">اخبار</a>
-    <a class="nav-item" onclick="showArticles()">بررسی فنی</a>
-</div>
-
-<div class="container">
-    
-    <div id="welcome-section">
-        <h2>WELCOME</h2>
-        <p>خوش آمدید</p>
-        <div style="margin-top: 30px; color: #bbb; font-size: 1rem;">جهت مشاهده محتوا، از منوی بالا انتخاب کنید</div>
-    </div>
-
-    <div id="articles-list">
-        <div class="article-card">
-            <h2>BMW X6 M Competition</h2>
-            <a href="articles/bmw-x6.html" class="btn-view">مطالعه بررسی</a>
+    <header>
+        <div class="container">
+            <h1 class="logo">AUTO<span>MAGAZINE</span></h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Reviews</a></li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
         </div>
+    </header>
 
-        <div class="article-card">
-            <h2>Volkswagen Golf Mk7 GTE</h2>
-            <a href="articles/golf-gte.html" class="btn-view">مطالعه بررسی</a>
-        </div>
+    <main class="container">
+        <section class="hero">
+            <h2>Welcome to the Future of Driving</h2>
+            <p>Explore the latest trends, high-performance supercars, and electric vehicle innovations.</p>
+            <button class="btn">Read Latest News</button>
+        </section>
 
-        <div class="article-card">
-            <h2>Citroen Xantia</h2>
-            <a href="articles/xantia.html" class="btn-view">مطالعه بررسی</a>
-        </div>
+        <section class="content">
+            <div class="card">
+                <h3>Electric Revolution</h3>
+                <p>How EVs are changing the automotive industry forever.</p>
+            </div>
+            <div class="card">
+                <h3>Supercar Spotting</h3>
+                <p>The most powerful engines hitting the streets this year.</p>
+            </div>
+        </section>
+    </main>
 
-        <div class="article-card">
-            <h2>Peugeot Pars ELX</h2>
-            <a href="articles/pars-elx.html" class="btn-view">مطالعه بررسی</a>
-        </div>
-    </div>
-
-</div>
-
-<script>
-    function showArticles() {
-        document.getElementById('welcome-section').style.display = 'none';
-        document.getElementById('articles-list').style.display = 'block';
-    }
-
-    function showNews() {
-        alert('بخش اخبار به زودی فعال می‌شود.');
-    }
-</script>
+    <footer>
+        <p>&copy; 2026 AUTO MAGAZINE - All Rights Reserved.</p>
+    </footer>
 
 </body>
 </html>
